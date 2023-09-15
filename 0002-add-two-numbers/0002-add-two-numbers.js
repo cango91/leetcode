@@ -26,6 +26,6 @@ var addTwoNumbers = function (l1, l2) {
     sum.val = l1.val + l2.val + acc
     acc = Math.floor(sum.val / 10);
     sum.val %= 10;
-    if(acc) sum.next = new ListNode(acc);
+    if (acc) sum.next = new ListNode(acc);
     return head;
 };
