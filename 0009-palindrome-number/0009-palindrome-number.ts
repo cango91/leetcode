@@ -1,11 +1,11 @@
 function isPalindrome(x: number): boolean {
     if(x<0) return false;
-    const s = String(x);
-    let l=0, h=s.length-1;
-    while(l<=h){
-        if(s.charCodeAt(l)!==s.charCodeAt(h)) return false;
-        l++;
-        h--;
+    let reversed = 0;
+    let copyX = x;
+    while(x!==0){
+        const pop = x % 10;
+        x = (x-pop) / 10;
+        reversed = reversed* 10 + pop;
     }
-    return true;
+    return reversed===copyX;
 };
