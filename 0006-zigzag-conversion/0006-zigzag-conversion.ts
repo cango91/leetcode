@@ -1,5 +1,5 @@
 function convert(s: string, numRows: number): string {
-    if(numRows===1) return s;
+    if(numRows===1 || s.length<= numRows) return s;
     const rows = Array(numRows).fill(null).map(()=>Array(0));
     let dir = "⬇";
     for (let i = 0, j = 0; i < s.length; i++) {
@@ -16,7 +16,5 @@ function convert(s: string, numRows: number): string {
             }
         }
     }
-    let r="";
-    rows.forEach(row => r+= row.join(''));
-    return r;
+    return rows.reduce((acc,el)=>acc+=el.join(""),"");
 };
