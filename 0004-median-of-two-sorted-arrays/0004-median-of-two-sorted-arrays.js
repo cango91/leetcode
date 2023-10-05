@@ -10,20 +10,18 @@ var findMedianSortedArrays = function (nums1, nums2) {
     const evenStrategy = (n + m) % 2 === 0
     // pseudo merge-sort until mid-way point
     const stop = evenStrategy ? (n + m) / 2 + 1 : (n + m + 1) / 2;
-    let idx = 0;
-    while (idx < stop) {
-        if (nums1.length && nums2.length) {
-            if (nums1[0] < nums2[0])
-                ret.push(nums1.shift());
-            else
-                ret.push(nums2.shift());
-        } else {
-            if (nums1.length)
-                ret.push(nums1.shift());
-            else
-                ret.push(nums2.shift());
+    let count = 0, idx1=0,idx2=0;
+    while (count < stop) {
+        let val;
+        if(idx1<n && (nums1[idx1]<nums2[idx2] || idx2>=m)){
+            val = nums1[idx1];
+            idx1++;
+        }else{
+            val = nums2[idx2];
+            idx2++;
         }
-        idx++;
+        ret.push(val);
+        count++;
     }
     if (ret.length < 2) return ret[0];
     if (evenStrategy)
