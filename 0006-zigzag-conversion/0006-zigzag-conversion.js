@@ -1,0 +1,27 @@
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+function convert(s, numRows) {
+    if(numRows===1) return s;
+    const rows = Array(numRows).fill(null).map(()=>Array(0));
+    let dir = "⬇";
+    for (let i = 0, j = 0; i < s.length; i++) {
+        rows[j].push(s[i]);
+        if(dir==="⬇"){
+            j++;
+            if(j===numRows-1){
+                dir="⬆";
+            }
+        }else{
+            j--;
+            if(j===0){
+                dir="⬇";
+            }
+        }
+    }
+    let r="";
+    rows.forEach(row => r+= row.join(''));
+    return r;
+};
