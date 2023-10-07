@@ -3,7 +3,7 @@
  * @return {number}
  */
 var romanToInt = function (s) {
-    const mappings = {
+     const mappings = {
         I: 1,
         V: 5,
         X: 10,
@@ -20,5 +20,5 @@ var romanToInt = function (s) {
         }
         result += val;
     }
-    return result;
+    return result
 };
