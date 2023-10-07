@@ -13,7 +13,6 @@ var romanToInt = function (s) {
         M: 1000,
     }
     let result = 0;
-    let next = "";
     for (let i = 0; i < s.length; i++) {
         let val = mappings[s[i]];
         if (i + 1 < s.length && mappings[s[i]] < mappings[s[i + 1]]) {
