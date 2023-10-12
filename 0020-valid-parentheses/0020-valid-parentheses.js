@@ -4,31 +4,22 @@
  */
 var isValid = function(string) {
     const openers = new Set(['(','[','{']);
-  dict = { 
+  const dict = { 
          '{' : '}',
          '[':']',
          '(':')'
           };
-  count = {
-    '{' :0,
-    '[':0,
-    '(':0
-  }
-  openStack = [];
-  for(let i=0;i<string.length;i++){
+  const openStack = [];
+  for(let i = 0; i<string.length;i++){
     if(openers.has(string[i])){
       openStack.push(string[i]);
-      count[[string[i]]]++;
     }else{
-      char = openStack.pop();
-      if(!char) return false
-      if(string[i]===dict[char] && count[char]){
-        count[char]--;
-      }else{
+      if(dict[openStack[openStack.length-1]]!==string[i]){
         return false;
-      }   
+      }
+      openStack.pop();
     }
   }
-  if(openStack.length) return false
+  if(openStack.length) return false;
   return true;
 };
