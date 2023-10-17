@@ -3,5 +3,5 @@
  * @return {number[]}
  */
 var sortedSquares = function(nums) {
-    return nums.map(num=> num**2).sort((a,b)=>a-b)
+    return nums.sort((a,b)=>Math.abs(a)-Math.abs(b)).map(num=>num**2)
 };
